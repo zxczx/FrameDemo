@@ -84,13 +84,13 @@ public class FileManager {
 
     public static File getWritableFileDir(){
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())){
-            File file = FrameApplication.context().getExternalFilesDir(null);
+            File file = FrameApplication.getApp().getExternalFilesDir(null);
             if (file == null){
-                file = FrameApplication.context().getFilesDir();
+                file = FrameApplication.getApp().getFilesDir();
             }
             return file;
         } else {
-            return FrameApplication.context().getFilesDir();
+            return FrameApplication.getApp().getFilesDir();
         }
     }
 

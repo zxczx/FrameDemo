@@ -40,7 +40,7 @@ public class LceNormalActivity extends BaseActivity implements MvpView {
     }
 
     @Override
-    public void finshActivity() {
+    public void finishActivity() {
 
     }
 

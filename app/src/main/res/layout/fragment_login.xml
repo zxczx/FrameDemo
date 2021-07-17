@@ -97,15 +97,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="30dp">
 
-            <TextView
-                android:id="@+id/tv_forget"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="忘记密码？"
-                android:textColor="#867d7b"
-                android:textSize="14sp" />
-
 
             <TextView
                 android:id="@+id/tv_privacy"
@@ -113,9 +104,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:text="用户协议及隐私政策"
                 android:textColor="#867d7b"
-                android:textSize="14sp" />
+                android:textSize="13sp" />
 
             <CheckBox
                 android:id="@+id/cb"

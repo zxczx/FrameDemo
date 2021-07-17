@@ -1,4 +1,4 @@
-package com.example.framedemo.di;
+package com.example.framedemo.module;
 
 import com.example.framedemo.FrameApplication;
 
@@ -11,6 +11,7 @@ import dagger.android.AndroidInjectionModule;
 
 @Singleton
 @Component(modules = {
+        DbModule.class,
         ApiModule.class,
         RepositoryModule.class,
         AndroidInjectionModule.class,

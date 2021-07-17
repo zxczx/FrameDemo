@@ -1,7 +1,6 @@
 package com.example.framedemo.mvp.login;
 
 
-import com.example.framedemo.di.login.LoginModule;
 import com.example.framedemo.model.LoginModel;
 import com.example.framedemo.mvp.MvpPresenter;
 import com.example.framedemo.mvp.MvpView;

@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">FrameDemo</string>
+
+    <string name="billing_error_toast">The google service is not available, please check your account or the network and try again later.</string>
+    <string name="subscription_introduction">Recurring billing. Cancel anytime.\n
+        Payment will be charged to Google Pay Account at confirmation of purchase.\n
+        Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current. Account will be charged for renewal within 24-hours prior to the end of the current period, and identify the cost of the renewal.\n
+        You can enjoy advanced features after subscribing.\n
+        Subscriptions may be managed by the user and auto-renewal may be turned off by going to the user\'s Account Settings after purchase.\n
+        Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.\n
+        Length of Subscription: 1 Month\n
+        Price: Free for 3 days, then $3.99/Month after free trial.\n
+        Length of Subscription: 1 Year\n
+        Price: Free for 3 days, then $39.99/Year after free trial.</string>
+    <string name="subscription_save">SAVE 20%</string>
+    <string name="continue_to_free_trail">Continue to free trail</string>
+    <string name="subscription_yearly_price">Free for 3 days,then$39.99/year</string>
+    <string name="subscribe_monthly">Subscribe Monthly</string>
+    <string name="subscribe_monthly_price">Free for 3 days,then$3.99/month</string>
+    <string name="subscribe_free_version"><u>Free Version</u></string>
+    <string name="subscribe_completed">Successfully subscribed</string>
+    <string name="subscribe_reason_no_ads">No Ads</string>
+    <string name="subscribe_reason_backup">SMS Backup &amp; Restore</string>
+    <string name="subscribe_reason_number_location">Number Location Lookup</string>
+
+    <string name="agree_privacy_policy_user_agreement">Privacy Policy and User Agreement</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="user_agreement">User Agreement</string>
+
+    <string name="login_hint_b">Enter the password</string>
+    <string name="enter_account_tips">Enter account</string>
+    <string name="login_privacyPolicy_hint">Select the Privacy Policy</string>
+
 </resources>

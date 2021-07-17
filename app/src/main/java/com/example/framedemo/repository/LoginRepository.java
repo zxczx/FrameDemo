@@ -1,11 +1,6 @@
 package com.example.framedemo.repository;
 
-
-
-
-
 import com.example.framedemo.api.service.LoginService;
-import com.example.framedemo.di.login.LoginModule;
 import com.example.framedemo.model.LoginModel;
 import com.example.framedemo.rx.ResponseTransformer;
 

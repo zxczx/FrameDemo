@@ -1,7 +1,6 @@
 package com.example.framedemo.api.service;
 
 import com.example.framedemo.api.ApiResponse;
-import com.example.framedemo.di.login.LoginModule;
 import com.example.framedemo.model.LoginModel;
 
 import java.util.Map;
@@ -11,7 +10,6 @@ import retrofit2.http.Body;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
-import retrofit2.http.QueryMap;
 
 public interface LoginService {
 

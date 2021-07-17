@@ -1,4 +1,4 @@
-package com.example.framedemo.di;
+package com.example.framedemo.module;
 
 import android.util.Log;
 

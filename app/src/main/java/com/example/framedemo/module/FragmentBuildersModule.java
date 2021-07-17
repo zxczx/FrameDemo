@@ -1,7 +1,7 @@
-package com.example.framedemo.di;
+package com.example.framedemo.module;
 
 
-import com.example.framedemo.di.login.LoginModule;
+import com.example.framedemo.module.login.LoginModule;
 import com.example.framedemo.ui.login.LoginFragment;
 
 import dagger.Module;

@@ -2,42 +2,38 @@ package com.example.framedemo.ui.base;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.View;
 
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+import com.example.framedemo.mvp.login.LoginContract;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
-    private Unbinder unbinder;
+
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
-        if (getLayoutResId() != -1) {
-            setContentView(getLayoutResId());
+        if (getLayoutView() != null) {
+            setContentView(getLayoutView());
         }
-//        StatusBarUtil.setTranslucentForCoordinatorLayout(this,60);
-
-        unbinder = ButterKnife.bind(this);
         initView();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbinder.unbind();
     }
 
-    protected int getLayoutResId() {
-        return -1;
+    protected View getLayoutView() {
+        return null;
     }
 
     public void initView(){}

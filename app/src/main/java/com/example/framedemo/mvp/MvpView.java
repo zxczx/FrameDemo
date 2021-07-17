@@ -5,5 +5,6 @@ public interface MvpView {
     void showEmptyView();
     void showError(Throwable throwable, boolean isShowErrorPage);
     void showContentView();
-    void finshActivity();
+    void finishActivity();
+
 }

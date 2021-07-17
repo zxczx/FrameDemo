@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- START xml_defaults -->
+<defaultsMap>
+    <entry>
+        <key>json_app_version_in_store</key>
+        <value></value>
+    </entry>
+
+    <!--  firebase+Twilio短信验证次数上限配置项  -->
+    <!--  当前使用的验证方式：0 firebase    1 Twilio  -->
+    <entry>
+        <key>long_verification_solution_type</key>
+        <value>0</value>
+    </entry>
+
+    <!--  firebase验证的发短信次数上限  -->
+    <entry>
+        <key>long_firebase_verify_limit</key>
+        <value>3</value>
+    </entry>
+
+    <!--  Twilio验证的发短信次数上限  -->
+    <entry>
+        <key>long_twilio_verify_limit</key>
+        <value>3</value>
+    </entry>
+
+</defaultsMap>
+    <!-- END xml_defaults -->
