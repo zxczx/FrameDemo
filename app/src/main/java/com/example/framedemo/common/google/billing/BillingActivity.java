@@ -15,8 +15,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.android.billingclient.api.BillingClient;
 import com.example.framedemo.FrameApplication;
 import com.example.framedemo.R;
-import com.example.framedemo.common.firebase.AnalyticsEvents;
-import com.example.framedemo.common.firebase.EventLogger;
+import com.example.framedemo.common.firebase.FrameAnalyticsEvents;
+import com.example.framedemo.common.firebase.FrameEventLogger;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -31,7 +31,7 @@ public class BillingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         EventLogger.logEvent(AnalyticsEvents.SHOW_SUB_PAGE);
+         FrameEventLogger.logEvent(FrameAnalyticsEvents.SHOW_SUB_PAGE);
         setContentView(R.layout.activity_billing);
         monitorBillingEvents();
         initView();
@@ -42,13 +42,13 @@ public class BillingActivity extends AppCompatActivity {
         findViewById(R.id.tv_free).setOnClickListener(v -> finish());
         findViewById(R.id.cl_monthly_sub).setOnClickListener(v -> {
             mBillingViewModel.buyMonthly();
-            EventLogger.logEvent(AnalyticsEvents.CLICK_SUB_MONTHLY);
+            FrameEventLogger.logEvent(FrameAnalyticsEvents.CLICK_SUB_MONTHLY);
         });
         mFlashView = findViewById(R.id.iv_flash);
         mYearlySubView = findViewById(R.id.cl_yearly_sub);
         mYearlySubView.setOnClickListener(v -> {
             mBillingViewModel.buyYearly();
-          EventLogger.logEvent(AnalyticsEvents.CLICK_SUB_YEARLY);
+          FrameEventLogger.logEvent(FrameAnalyticsEvents.CLICK_SUB_YEARLY);
         });
         mYearlySubView.post(this::initAnimations);
     }

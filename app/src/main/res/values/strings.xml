@@ -31,4 +31,8 @@
     <string name="enter_account_tips">Enter account</string>
     <string name="login_privacyPolicy_hint">Select the Privacy Policy</string>
 
+    <string name="new_function">New Function :</string>
+    <string name="update_buttontext">Update now</string>
+    <string name="cancel">Cancel</string>
+
 </resources>

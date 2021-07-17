@@ -49,83 +49,83 @@ public class FrameMMkvImpl implements FrameMMkv {
     }
 
     @Override
-    public void setString(String key, String value) {
+    public void putString(String key, String value) {
         mmkv.encode(key, value);
     }
 
     @Override
-    public void setInt(String key, int value) {
+    public void putInt(String key, int value) {
         mmkv.encode(key, value);
     }
 
     @Override
-    public void setBoolean(String key, Boolean value) {
+    public void putBoolean(String key, Boolean value) {
         mmkv.encode(key, value);
     }
 
     @Override
-    public void setByte(String key, byte[] value) {
-        this.setString(key, String.valueOf(value));
+    public void putByte(String key, byte[] value) {
+        this.putString(key, String.valueOf(value));
     }
 
     @Override
-    public void setShort(String key, short value) {
-        this.setString(key, String.valueOf(value));
+    public void putShort(String key, short value) {
+        this.putString(key, String.valueOf(value));
     }
 
     @Override
-    public void setLong(String key, long value) {
+    public void putLong(String key, long value) {
         mmkv.encode(key, value);
     }
 
     @Override
-    public void setFloat(String key, float value) {
+    public void putFloat(String key, float value) {
         mmkv.encode(key, value);
     }
 
     @Override
-    public void setDouble(String key, double value) {
-        this.setString(key, String.valueOf(value));
+    public void putDouble(String key, double value) {
+        this.putString(key, String.valueOf(value));
     }
 
     @Override
-    public void setString(int resID, String value) {
-        this.setString(this.mContext.getString(resID), value);
+    public void putString(int resID, String value) {
+        this.putString(this.mContext.getString(resID), value);
     }
 
     @Override
-    public void setInt(int resID, int value) {
-        this.setInt(this.mContext.getString(resID), value);
+    public void putInt(int resID, int value) {
+        this.putInt(this.mContext.getString(resID), value);
     }
 
     @Override
-    public void setBoolean(int resID, Boolean value) {
-        this.setBoolean(this.mContext.getString(resID), value);
+    public void putBoolean(int resID, Boolean value) {
+        this.putBoolean(this.mContext.getString(resID), value);
     }
 
     @Override
-    public void setByte(int resID, byte[] value) {
-        this.setByte(this.mContext.getString(resID), value);
+    public void putByte(int resID, byte[] value) {
+        this.putByte(this.mContext.getString(resID), value);
     }
 
     @Override
-    public void setShort(int resID, short value) {
-        this.setShort(this.mContext.getString(resID), value);
+    public void putShort(int resID, short value) {
+        this.putShort(this.mContext.getString(resID), value);
     }
 
     @Override
-    public void setLong(int resID, long value) {
-        this.setLong(this.mContext.getString(resID), value);
+    public void putLong(int resID, long value) {
+        this.putLong(this.mContext.getString(resID), value);
     }
 
     @Override
-    public void setFloat(int resID, float value) {
-        this.setFloat(this.mContext.getString(resID), value);
+    public void putFloat(int resID, float value) {
+        this.putFloat(this.mContext.getString(resID), value);
     }
 
     @Override
-    public void setDouble(int resID, double value) {
-        this.setDouble(this.mContext.getString(resID), value);
+    public void putDouble(int resID, double value) {
+        this.putDouble(this.mContext.getString(resID), value);
     }
 
     @Override

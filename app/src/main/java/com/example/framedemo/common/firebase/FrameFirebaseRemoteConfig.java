@@ -8,13 +8,14 @@ import com.example.framedemo.BuildConfig;
 import com.example.framedemo.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
 
 /**
  * Created by mengzhao on 16/5/30.
  */
-public class FirebaseRemoteConfig {
+public class FrameFirebaseRemoteConfig {
 
     private static final String TAG = "FirebaseRemoteConfig";
 
@@ -31,21 +32,21 @@ public class FirebaseRemoteConfig {
     public static final String KEY_CALL_FLASH_DELAY = "key_call_flash_delay";
     public static final String KEY_CALL_FLASH_SWITCH = "key_call_flash_switch";
 
-    private static FirebaseRemoteConfig sInstance = null;
+    private static FrameFirebaseRemoteConfig sInstance = null;
 
 
-    private final com.google.firebase.remoteconfig.FirebaseRemoteConfig mFirebaseRemoteConfig;
+    private final FirebaseRemoteConfig mFirebaseRemoteConfig;
 
-    public static FirebaseRemoteConfig getInstance() {
+    public static FrameFirebaseRemoteConfig getInstance() {
         if (sInstance == null) {
-            sInstance = new FirebaseRemoteConfig();
+            sInstance = new FrameFirebaseRemoteConfig();
         }
 
         return sInstance;
     }
 
-    private FirebaseRemoteConfig() {
-        mFirebaseRemoteConfig = com.google.firebase.remoteconfig.FirebaseRemoteConfig.getInstance();
+    private FrameFirebaseRemoteConfig() {
+        mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
 
         // Create Remote Config Setting to enable developer mode.
         // Fetching configs from the server is normally limited to 5 requests per hour.
@@ -90,7 +91,7 @@ public class FirebaseRemoteConfig {
     }
 
 
-    public com.google.firebase.remoteconfig.FirebaseRemoteConfig getRemoteConfigRef() {
+    public FirebaseRemoteConfig getRemoteConfigRef() {
         return mFirebaseRemoteConfig;
     }
 }

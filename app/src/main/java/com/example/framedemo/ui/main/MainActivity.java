@@ -1,10 +1,6 @@
 package com.example.framedemo.ui.main;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,14 +8,12 @@ import android.view.View;
 
 import com.example.framedemo.FrameApplication;
 import com.example.framedemo.R;
-import com.example.framedemo.common.firebase.AnalyticsEvents;
-import com.example.framedemo.common.firebase.EventLogger;
+import com.example.framedemo.common.firebase.FrameAnalyticsEvents;
+import com.example.framedemo.common.firebase.FrameEventLogger;
 import com.example.framedemo.common.google.billing.BillingClientLifecycle;
 import com.example.framedemo.common.google.billing.BillingUtilities;
-import com.example.framedemo.databinding.ActivityLoginBinding;
 import com.example.framedemo.databinding.ActivityMainBinding;
 import com.example.framedemo.ui.base.BaseActivity;
-import com.example.framedemo.ui.base.LceNormalActivity;
 import com.example.framedemo.ui.roomDemo.RoomDemoActivity;
 import com.example.framedemo.ui.rxjavademo.RxJavaDemoActivity;
 
@@ -57,11 +51,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         billingClientLifecycle.purchaseAcknowledgedEvent.observe(this, purchase -> {
             if (purchase == null) return;
             if (BillingUtilities.YEARLY_SKU.equals(purchase.getSku())) {
-                EventLogger.logEvent(AnalyticsEvents.FIRST_PURCHASED_YEARLY_TRY);
+                FrameEventLogger.logEvent(FrameAnalyticsEvents.FIRST_PURCHASED_YEARLY_TRY);
             } else if (BillingUtilities.MONTHLY_SKU.equals(purchase.getSku())) {
-                EventLogger.logEvent(AnalyticsEvents.FIRST_PURCHASED_MONTHLY_TRY);
+                FrameEventLogger.logEvent(FrameAnalyticsEvents.FIRST_PURCHASED_MONTHLY_TRY);
             }
-            EventLogger.logEvent(AnalyticsEvents.FIRST_PURCHASED_ALL_TRY);
+            FrameEventLogger.logEvent(FrameAnalyticsEvents.FIRST_PURCHASED_ALL_TRY);
         });
     }
 

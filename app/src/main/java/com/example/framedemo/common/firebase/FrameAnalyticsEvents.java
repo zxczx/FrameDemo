@@ -1,6 +1,6 @@
 package com.example.framedemo.common.firebase;
 
-public class AnalyticsEvents {
+public class FrameAnalyticsEvents {
 
 
     //订阅

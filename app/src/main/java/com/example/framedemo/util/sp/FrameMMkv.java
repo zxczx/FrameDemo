@@ -5,37 +5,37 @@ public interface FrameMMkv {
 
     FrameMMkvImpl loadConfig(String mmkvName);
 
-    void setString(String var1, String var2);
+    void putString(String var1, String var2);
 
-    void setInt(String var1, int var2);
+    void putInt(String var1, int var2);
 
-    void setBoolean(String var1, Boolean var2);
+    void putBoolean(String var1, Boolean var2);
 
-    void setByte(String var1, byte[] var2);
+    void putByte(String var1, byte[] var2);
 
-    void setShort(String var1, short var2);
+    void putShort(String var1, short var2);
 
-    void setLong(String var1, long var2);
+    void putLong(String var1, long var2);
 
-    void setFloat(String var1, float var2);
+    void putFloat(String var1, float var2);
 
-    void setDouble(String var1, double var2);
+    void putDouble(String var1, double var2);
 
-    void setString(int var1, String var2);
+    void putString(int var1, String var2);
 
-    void setInt(int var1, int var2);
+    void putInt(int var1, int var2);
 
-    void setBoolean(int var1, Boolean var2);
+    void putBoolean(int var1, Boolean var2);
 
-    void setByte(int var1, byte[] var2);
+    void putByte(int var1, byte[] var2);
 
-    void setShort(int var1, short var2);
+    void putShort(int var1, short var2);
 
-    void setLong(int var1, long var2);
+    void putLong(int var1, long var2);
 
-    void setFloat(int var1, float var2);
+    void putFloat(int var1, float var2);
 
-    void setDouble(int var1, double var2);
+    void putDouble(int var1, double var2);
 
     String getString(String var1, String var2);
 

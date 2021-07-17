@@ -7,7 +7,7 @@ import com.example.framedemo.FrameApplication;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 
-public class EventLogger {
+public class FrameEventLogger {
 
     public static void logEvent(String trackerName) {
         logEvent(trackerName, null);

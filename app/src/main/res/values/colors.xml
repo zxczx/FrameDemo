@@ -5,4 +5,5 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="white">#ffffffff</color>
     <color name="privacy_policy_text_color">#20AB82</color>
+    <color name="contact_picker_button_text_color">@color/colorPrimary</color>
 </resources>
