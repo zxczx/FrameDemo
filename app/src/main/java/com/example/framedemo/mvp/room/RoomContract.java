@@ -2,7 +2,6 @@ package com.example.framedemo.mvp.room;
 
 
 import com.example.framedemo.db.user.User;
-import com.example.framedemo.model.LoginModel;
 import com.example.framedemo.mvp.MvpPresenter;
 import com.example.framedemo.mvp.MvpView;
 

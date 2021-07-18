@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.framedemo.mvp.login.LoginContract;
+import com.example.framedemo.util.ActivityUtil;
 
 
 public abstract class BaseActivity extends AppCompatActivity {

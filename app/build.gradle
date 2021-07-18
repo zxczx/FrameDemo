@@ -13,6 +13,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        buildConfigField "String", "BuildID", "\"" + getBuildId() + "\""
     }
 
     buildTypes {
@@ -32,7 +33,9 @@ android {
     }
 
 }
-
+def getBuildId() {
+    return new Date().format("yyyyMMddHHmm")
+}
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.4.0'
@@ -77,6 +80,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
 
     implementation 'com.google.firebase:firebase-config:19.1.4'
+
+    // for google firebase cloud messaging
+    implementation 'com.google.firebase:firebase-messaging:20.2.4'
 
 
     implementation "com.android.billingclient:billing:3.0.3"

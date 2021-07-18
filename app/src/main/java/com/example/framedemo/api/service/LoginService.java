@@ -1,7 +1,7 @@
 package com.example.framedemo.api.service;
 
 import com.example.framedemo.api.ApiResponse;
-import com.example.framedemo.model.LoginModel;
+import com.example.framedemo.db.user.User;
 
 import java.util.Map;
 import io.reactivex.Single;
@@ -14,7 +14,7 @@ import retrofit2.http.Part;
 public interface LoginService {
 
     @POST("/login")
-    Single<ApiResponse<LoginModel>> login(@Body Map<String, Object> params);
+    Single<ApiResponse<User>> login(@Body Map<String, Object> params);
 
     @POST("/upload")
     @Multipart

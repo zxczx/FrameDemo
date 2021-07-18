@@ -35,4 +35,8 @@
     <string name="update_buttontext">Update now</string>
     <string name="cancel">Cancel</string>
 
+    <string name="this_is_the_latest_version">This is the latest version</string>
+    <string name="about_activity_new_version_tips">NEW!</string>
+    <string name="about_update_version">Update Version</string>
+
 </resources>

@@ -18,7 +18,6 @@ import com.example.framedemo.R;
 import com.example.framedemo.api.Config;
 import com.example.framedemo.common.firebase.FrameFirebaseRemoteConfig;
 import com.example.framedemo.model.NewVersionInfo;
-import com.example.framedemo.util.sp.FrameMMkv;
 import com.example.framedemo.util.sp.FrameMMkvImpl;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
