@@ -1,7 +1,7 @@
 package com.example.framedemo.module;
 
 import com.example.framedemo.module.room.RoomModule;
-import com.example.framedemo.ui.roomDemo.RoomDemoActivity;
+import com.example.framedemo.ui.my.roomDemo.RoomDemoActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

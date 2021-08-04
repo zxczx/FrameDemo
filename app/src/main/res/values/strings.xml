@@ -39,4 +39,29 @@
     <string name="about_activity_new_version_tips">NEW!</string>
     <string name="about_update_version">Update Version</string>
 
+    <string name="home">Home</string>
+    <string name="my">My</string>
+    <string name="introduce">\u3000\u3000本项目采用mvp + rxjava + retrofit + dagger架构，使用前需学习相关内容。
+        \n\n统一功能:
+        \n\nFirebase Push(Cloud Messaging):可能涉及强制、非强制升级、或者推送应用推广信息，显示其他通知、落地页等。
+        \n\nFirebase Remote Config基本功能：给其他App导量、强制和非强制升级（需要应用已发布100%）。
+        \n\nVersionChecker:本地记录版本变更。
+        \n\nWhatsNew:利用VersionChec。
+        \n\nEventLog(GA或Firebase):FaceBookSdk不再只为打点集成，因为需要做平台迁移。需要用工具类记录Event事件，并通过注释标明打点含义。
+        \n\nInstallReferrer:记录分渠道信息
+        \n\n彩蛋：在某个View上长按若干时长，弹出应用包名的Toast。
+        \n\n隐私政策&amp;用户协议：About界面、Splash界面。
+        \n\nBilling:3.0 或 4.0。
+        \n\nFirebase Crashlytics。
+        \n\nMMKV:轻量级数据缓存，取代SharedPreference以减少ANR。
+        \n\nGooglePlayManager:跳转GooglePlay的工具类。\n
+    </string>
+
+    <string name="my_room">点击跳转 room</string>
+    <string name="my_rxjava">点击跳转 rxjava</string>
+    <string name="my_check_version">检测版本</string>
+    <string name="my_about">关于我们</string>
+    <string name="my_eggshell">彩蛋</string>
+    <string name="package_temp" translatable="false">Y29tLmV4YW1wbGUuZnJhbWVkZW1v</string>
+
 </resources>

@@ -31,7 +31,7 @@ public class LoginFragment extends LceNormalFragment implements LoginContract.Vi
     @Inject
     LoginPresenter presenter;
 
-    public FragmentLoginBinding fragmentLoginBinding;
+    public FragmentLoginBinding mFragmentLoginBinding;
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -40,8 +40,8 @@ public class LoginFragment extends LceNormalFragment implements LoginContract.Vi
 
     @Override
     protected View getLayoutView(LayoutInflater inflater, ViewGroup container) {
-        fragmentLoginBinding = FragmentLoginBinding.inflate(inflater, container, false);
-        return fragmentLoginBinding.getRoot();
+        mFragmentLoginBinding = FragmentLoginBinding.inflate(inflater, container, false);
+        return mFragmentLoginBinding.getRoot();
     }
 
 
@@ -50,14 +50,14 @@ public class LoginFragment extends LceNormalFragment implements LoginContract.Vi
         super.onViewCreated(view, savedInstanceState);
         AndroidSupportInjection.inject(this);
         presenter.attachView(this);
-        fragmentLoginBinding.btnLogin.setOnClickListener(this::onClick);
+        mFragmentLoginBinding.btnLogin.setOnClickListener(this::onClick);
         setUserPrivacy();
 
     }
 
     private void setUserPrivacy() {
-        fragmentLoginBinding.tvPrivacy.setText(UserPrivacyUtils.setUserPrivacy(getContext()));
-        fragmentLoginBinding.tvPrivacy.setMovementMethod(LinkMovementMethod.getInstance());
+        mFragmentLoginBinding.tvPrivacy.setText(UserPrivacyUtils.setUserPrivacy(getContext()));
+        mFragmentLoginBinding.tvPrivacy.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     @Override
@@ -86,23 +86,23 @@ public class LoginFragment extends LceNormalFragment implements LoginContract.Vi
 
     @Override
     public void onClick(View v) {
-        if (fragmentLoginBinding.accountEt.getText().length() == 0) {
+        if (mFragmentLoginBinding.accountEt.getText().length() == 0) {
             Toaster.show(R.string.enter_account_tips);
             return;
         }
 
-        if (fragmentLoginBinding.passwordEt.getText().length() == 0) {
+        if (mFragmentLoginBinding.passwordEt.getText().length() == 0) {
             Toaster.show(R.string.login_hint_b);
             return;
         }
 
-        if (!fragmentLoginBinding.cb.isChecked()) {
+        if (!mFragmentLoginBinding.cb.isChecked()) {
             Toaster.show(R.string.login_privacyPolicy_hint);
             return;
         }
         LoadingDialog.showLoadingDialog(getActivity());
         //登录走网络
-        presenter.login(fragmentLoginBinding.accountEt.getText().toString(),
-                fragmentLoginBinding.passwordEt.getText().toString());
+        presenter.login(mFragmentLoginBinding.accountEt.getText().toString(),
+                mFragmentLoginBinding.passwordEt.getText().toString());
     }
 }

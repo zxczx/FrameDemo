@@ -1,31 +1,31 @@
 package com.example.framedemo.ui.main;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.example.framedemo.FrameApplication;
-import com.example.framedemo.R;
 import com.example.framedemo.common.firebase.FrameAnalyticsEvents;
 import com.example.framedemo.common.firebase.FrameEventLogger;
 import com.example.framedemo.common.google.billing.BillingClientLifecycle;
 import com.example.framedemo.common.google.billing.BillingUtilities;
 import com.example.framedemo.databinding.ActivityMainBinding;
 import com.example.framedemo.ui.base.BaseActivity;
-import com.example.framedemo.ui.my.about.AboutActivity;
-import com.example.framedemo.ui.roomDemo.RoomDemoActivity;
-import com.example.framedemo.ui.rxjavademo.RxJavaDemoActivity;
-import com.example.framedemo.util.VersionChecker;
+import com.example.framedemo.ui.main.adapter.MainPagerAdapter;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
-import timber.log.Timber;
+import org.jetbrains.annotations.NotNull;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+
+public class MainActivity extends BaseActivity {
 
     public ActivityMainBinding mActivityMainBinding;
+    private MainPagerAdapter pagerAdapter;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -36,11 +36,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initBillingClientLifeCycle();
-        mActivityMainBinding.room.setOnClickListener(this::onClick);
-        mActivityMainBinding.rxjava.setOnClickListener(this::onClick);
-        mActivityMainBinding.checkVersion.setOnClickListener(this::onClick);
-        mActivityMainBinding.about.setOnClickListener(this::onClick);
+//        wrapBottomTab();
     }
+
+    @Override
+    public void initView() {
+        super.initView();
+        pagerAdapter = new MainPagerAdapter(this);
+        mActivityMainBinding.viewPager.setAdapter(pagerAdapter);
+        new TabLayoutMediator(mActivityMainBinding.indicatorTab, mActivityMainBinding.viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull @NotNull TabLayout.Tab tab, int position) {
+                tab.setCustomView(MainPagerAdapter.getTabView(MainActivity.this, position));
+            }
+        }).attach();
+    }
+
 
     @Override
     protected View getLayoutView() {
@@ -67,28 +78,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         });
     }
 
-    @SuppressLint("NonConstantResourceId")
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.room:
-                RoomDemoActivity.start(this);
-                break;
-            case R.id.rxjava:
-                RxJavaDemoActivity.start(this);
-                break;
-            case R.id.check_version:
-                boolean hasNewVersionInStore = VersionChecker.hasNewVersionInStore(this);
-                if (hasNewVersionInStore) {
-                    VersionChecker.showUpdatedVersionDialog(this);
-                } else {
-                    Toast.makeText(this, getResources().getString(R.string.this_is_the_latest_version), Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case R.id.about:
-                AboutActivity.start(this);
-                break;
-        }
 
-    }
+//
+//    @SuppressLint("NonConstantResourceId")
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.room:
+//                RoomDemoActivity.start(this);
+//                break;
+//            case R.id.rxjava:
+//                RxJavaDemoActivity.start(this);
+//                break;
+//            case R.id.check_version:
+//                boolean hasNewVersionInStore = VersionChecker.hasNewVersionInStore(this);
+//                if (hasNewVersionInStore) {
+//                    VersionChecker.showUpdatedVersionDialog(this);
+//                } else {
+//                    Toast.makeText(this, getResources().getString(R.string.this_is_the_latest_version), Toast.LENGTH_SHORT).show();
+//                }
+//                break;
+//            case R.id.about:
+//                AboutActivity.start(this);
+//                break;
+//        }
+//
+//    }
 }

@@ -37,6 +37,9 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActivityAboutBinding.checkNewVersion.setOnClickListener(this::onClick);
+        mActivityAboutBinding.toolbar.title.setText("about");
+        mActivityAboutBinding.toolbar.back.setVisibility(View.VISIBLE);
+        mActivityAboutBinding.toolbar.back.setOnClickListener(this::onClick);
         setUserPrivacy();
         setVersion();
     }
@@ -54,6 +57,13 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        PromotionManager.searchAppOnPlay(AboutActivity.this, getPackageName());
+        switch (v.getId()){
+            case R.id.back:
+                finish();
+                break;
+            case R.id.check_new_version:
+                PromotionManager.searchAppOnPlay(AboutActivity.this, getPackageName());
+                break;
+        }
     }
 }

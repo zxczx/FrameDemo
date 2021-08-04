@@ -10,7 +10,9 @@
         android:layout_height="30dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="16dp"
-        android:src="@mipmap/ic_back" />
+        android:src="@mipmap/ic_back"
+        android:visibility="gone"
+        />
 
     <TextView
         android:id="@+id/title"

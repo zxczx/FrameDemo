@@ -9,11 +9,17 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.framedemo.databinding.ActivityLoginBinding;
 import com.example.framedemo.ui.base.BaseActivity;
+import com.example.framedemo.ui.my.roomDemo.RoomDemoActivity;
 
 public class LoginActivity extends BaseActivity {
 
 
     public ActivityLoginBinding mActivityLoginBinding;
+
+    public static void start(Context context) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        context.startActivity(intent);
+    }
 
     @Override
     protected View getLayoutView() {

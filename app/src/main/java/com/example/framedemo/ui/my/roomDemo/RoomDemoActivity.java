@@ -1,4 +1,4 @@
-package com.example.framedemo.ui.roomDemo;
+package com.example.framedemo.ui.my.roomDemo;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -12,7 +12,7 @@ import com.example.framedemo.db.user.User;
 import com.example.framedemo.mvp.room.RoomContract;
 import com.example.framedemo.mvp.room.RoomPresenter;
 import com.example.framedemo.ui.base.LceNormalActivity;
-import com.example.framedemo.ui.roomDemo.adapter.RoomAdapter;
+import com.example.framedemo.ui.my.roomDemo.adapter.RoomAdapter;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,7 +20,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class RoomDemoActivity extends LceNormalActivity implements RoomContract.View {
+public class RoomDemoActivity extends LceNormalActivity implements RoomContract.View, View.OnClickListener {
 
     public ActivityRoomDemoBinding mActivityRoomDemoBinding;
     @Inject
@@ -37,18 +37,22 @@ public class RoomDemoActivity extends LceNormalActivity implements RoomContract.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRoomPresenter.attachView(this);
-        initdata();
+
+        initData();
     }
 
     @Override
     public void initView() {
         super.initView();
+        mActivityRoomDemoBinding.toolbar.title.setText("room");
+        mActivityRoomDemoBinding.toolbar.back.setVisibility(View.VISIBLE);
+        mActivityRoomDemoBinding.toolbar.back.setOnClickListener(this::onClick);
         mActivityRoomDemoBinding.rv.setLayoutManager(new LinearLayoutManager(this));
         mActivityRoomDemoBinding.rv.setAdapter(mRoomAdapter);
 
     }
 
-    private void initdata() {
+    private void initData() {
         List<User> users = new ArrayList<>();
         for (int i = 0; i <20; i++) {
             User user = new User("xiaoniu "+i);
@@ -84,5 +88,10 @@ public class RoomDemoActivity extends LceNormalActivity implements RoomContract.
     protected void onDestroy() {
         super.onDestroy();
         mRoomPresenter.detachView();
+    }
+
+    @Override
+    public void onClick(View v) {
+        finish();
     }
 }

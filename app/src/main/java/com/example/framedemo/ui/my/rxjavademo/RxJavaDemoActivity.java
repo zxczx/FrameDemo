@@ -1,17 +1,12 @@
-package com.example.framedemo.ui.rxjavademo;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.framedemo.ui.my.rxjavademo;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-import com.example.framedemo.R;
 import com.example.framedemo.databinding.ActivityRxJavaDemoBinding;
 import com.example.framedemo.ui.base.BaseActivity;
-import com.example.framedemo.ui.login.LoginActivity;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -20,7 +15,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import timber.log.Timber;
 
-public class RxJavaDemoActivity extends BaseActivity {
+public class RxJavaDemoActivity extends BaseActivity implements View.OnClickListener {
 
     public ActivityRxJavaDemoBinding mActivityRxJavaDemoBinding;
 
@@ -42,6 +37,10 @@ public class RxJavaDemoActivity extends BaseActivity {
     }
 
     private void initData() {
+        mActivityRxJavaDemoBinding.toolbar.title.setText("rxjava");
+        mActivityRxJavaDemoBinding.toolbar.back.setVisibility(View.VISIBLE);
+        mActivityRxJavaDemoBinding.toolbar.back.setOnClickListener(this::onClick);
+
         // RxJava的流式操作
         Observable.create(new ObservableOnSubscribe<Integer>() {
             // 1. 创建被观察者 & 生产事件
@@ -77,5 +76,10 @@ public class RxJavaDemoActivity extends BaseActivity {
             }
 
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        finish();
     }
 }
