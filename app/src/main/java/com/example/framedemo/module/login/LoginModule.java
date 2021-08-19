@@ -7,6 +7,10 @@ import com.example.framedemo.repository.LoginRepository;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * LoginModule 初始化 Login界面相关方法
+ */
+
 @Module
 public class LoginModule {
 

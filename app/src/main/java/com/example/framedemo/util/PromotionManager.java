@@ -11,9 +11,7 @@ import android.widget.Toast;
 import com.example.framedemo.R;
 
 
-/**
- * Created by wyjia on 12/25/13.
- */
+
 public class PromotionManager {
 
     public static final String MARKET_APP_PREFIX = "market://details?id=";

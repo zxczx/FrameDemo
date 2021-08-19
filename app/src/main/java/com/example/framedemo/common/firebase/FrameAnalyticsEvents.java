@@ -1,7 +1,9 @@
 package com.example.framedemo.common.firebase;
 
+/**
+ * 定义打点常量类
+ */
 public class FrameAnalyticsEvents {
-
 
     //订阅
     public static final String SHOW_SUB_PAGE = "show_sub_page";//启动订阅页面

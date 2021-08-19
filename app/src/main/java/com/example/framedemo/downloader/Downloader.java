@@ -4,7 +4,9 @@ import android.content.Context;
 
 import com.liulishuo.filedownloader.FileDownloader;
 import com.liulishuo.filedownloader.util.FileDownloadUtils;
-
+/**
+ * FileDownloader的简单封装
+ */
 public class Downloader {
 
     public static void setup(Context context) {

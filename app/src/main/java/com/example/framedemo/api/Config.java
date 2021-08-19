@@ -1,5 +1,8 @@
 package com.example.framedemo.api;
 
+/**
+ * 配置参数
+ */
 public class Config {
     public static final String RequsetPath = "https://www.baidu.com/";
 

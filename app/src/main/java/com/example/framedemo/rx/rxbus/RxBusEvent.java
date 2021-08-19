@@ -1,5 +1,8 @@
 package com.example.framedemo.rx.rxbus;
 
+/**
+ * RxBus  消息传递实体类
+ */
 public class RxBusEvent {
     private String message;
     private int data;

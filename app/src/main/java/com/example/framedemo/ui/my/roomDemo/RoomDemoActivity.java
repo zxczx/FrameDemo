@@ -19,7 +19,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
-
+/**
+ * room使用 mRoomPresenter->RoomRepository->UserDao->增，删，改，查
+ */
 public class RoomDemoActivity extends LceNormalActivity implements RoomContract.View, View.OnClickListener {
 
     public ActivityRoomDemoBinding mActivityRoomDemoBinding;

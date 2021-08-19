@@ -4,6 +4,10 @@ import android.content.Context;
 
 import com.tencent.mmkv.MMKV;
 
+/**
+ *  MMkvI工具类
+ */
+
 public class FrameMMkvImpl implements FrameMMkv {
     private static FrameMMkvImpl frameMMkvImpl;
     private Context mContext;

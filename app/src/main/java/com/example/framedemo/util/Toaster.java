@@ -12,7 +12,9 @@ import com.example.framedemo.ui.base.BaseActivity;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
+/**
+ * Toaster工具类
+ */
 public class Toaster {
     public static void show(@StringRes int resId) {
         Toast.makeText(FrameApplication.getApp(), FrameApplication.getApp().getString(resId), Toast.LENGTH_SHORT).show();

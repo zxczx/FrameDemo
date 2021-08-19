@@ -12,7 +12,9 @@ import android.widget.TextView;
 
 import com.example.framedemo.R;
 
-
+/**
+ *  Loading工具类
+ */
 public class LoadingDialog {
     static Dialog loadingDialog;
     private static Context context1;

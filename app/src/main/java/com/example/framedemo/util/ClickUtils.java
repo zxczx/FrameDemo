@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
 
+/**
+ *  自定义长按时间工具类
+ */
 public class ClickUtils {
 
     public static void setClick(final Handler handler, final View clickView, final View.OnClickListener clickListener,

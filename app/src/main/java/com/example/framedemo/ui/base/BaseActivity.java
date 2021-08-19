@@ -11,12 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.framedemo.mvp.login.LoginContract;
 import com.example.framedemo.util.ActivityUtil;
 
-
+/**
+ * BaseActivity，可设置通用方法
+ */
 public abstract class BaseActivity extends AppCompatActivity {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
-
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

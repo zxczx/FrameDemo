@@ -13,6 +13,9 @@ import androidx.annotation.NonNull;
 import com.example.framedemo.R;
 import com.example.framedemo.api.Config;
 
+/**
+ * 用户隐私和协议工具类
+ */
 public class UserPrivacyUtils {
 
     public static SpannableString setUserPrivacy(Context context) {

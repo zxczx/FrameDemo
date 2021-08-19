@@ -2,6 +2,9 @@ package com.example.framedemo.api;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * api返回参数统一实体类（可根据后台统一配置）
+ */
 public class ApiResponse<T> {
 
     @SerializedName("resultCode")

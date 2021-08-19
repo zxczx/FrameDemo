@@ -6,7 +6,9 @@ import com.example.framedemo.api.ApiResponse;
 
 import io.reactivex.functions.Function;
 
-
+/**
+ * rxJava 最外传统一数据的解析
+ */
 public class ResponseTransformer <T> implements Function<ApiResponse<T>, T> {
 
 

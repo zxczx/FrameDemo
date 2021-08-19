@@ -23,6 +23,10 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
 import org.json.JSONObject;
 
+
+/**
+ * 版本变更工具类
+ */
 public class VersionChecker {
 
     private static final String PREF_KEY_FIRST_INSTALL_VERSION_CODE = "VersionChecker_first_install_version_code";
@@ -110,6 +114,7 @@ public class VersionChecker {
         return sp.getInt(PREF_KEY_PREV_VERSION_CODE, UNINIT_VERSION_CODE);
     }
 
+    //修改version
     public static NewVersionInfo getNewVersionInStore() {
         String versionInfo = "";
         NewVersionInfo newVersionInfo = null;

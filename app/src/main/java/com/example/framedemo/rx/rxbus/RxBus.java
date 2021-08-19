@@ -13,8 +13,9 @@ import io.reactivex.subjects.PublishSubject;
 import io.reactivex.subjects.Subject;
 import timber.log.Timber;
 
-;
-
+/**
+ * RxBus  消息传递
+ */
 public class RxBus {
 
     private HashMap<String, CompositeDisposable> subscriptionMap;

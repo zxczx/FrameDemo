@@ -1,7 +1,5 @@
 package com.example.framedemo.module.room;
 
-import android.util.Log;
-
 import com.example.framedemo.mvp.room.RoomPresenter;
 import com.example.framedemo.repository.RoomRepository;
 import com.example.framedemo.ui.my.roomDemo.adapter.RoomAdapter;
@@ -18,7 +16,6 @@ public class RoomModule {
 
     @Provides
     public static RoomAdapter provideRoomAdapter() {
-        Log.i("zxc","------------RoomAdapter----------");
         return new RoomAdapter();
     }
 

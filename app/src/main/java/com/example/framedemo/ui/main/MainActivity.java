@@ -36,7 +36,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initBillingClientLifeCycle();
-//        wrapBottomTab();
     }
 
     @Override
@@ -78,30 +77,4 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-
-//
-//    @SuppressLint("NonConstantResourceId")
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()) {
-//            case R.id.room:
-//                RoomDemoActivity.start(this);
-//                break;
-//            case R.id.rxjava:
-//                RxJavaDemoActivity.start(this);
-//                break;
-//            case R.id.check_version:
-//                boolean hasNewVersionInStore = VersionChecker.hasNewVersionInStore(this);
-//                if (hasNewVersionInStore) {
-//                    VersionChecker.showUpdatedVersionDialog(this);
-//                } else {
-//                    Toast.makeText(this, getResources().getString(R.string.this_is_the_latest_version), Toast.LENGTH_SHORT).show();
-//                }
-//                break;
-//            case R.id.about:
-//                AboutActivity.start(this);
-//                break;
-//        }
-//
-//    }
 }

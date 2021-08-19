@@ -8,8 +8,9 @@ import java.net.UnknownHostException;
 
 import timber.log.Timber;
 
-
-
+/**
+ * 统一错误处理
+ */
 public class ErrorHandler {
     public static void handlerError(Context context, Throwable throwable) {
 

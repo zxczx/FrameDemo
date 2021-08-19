@@ -5,6 +5,9 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Map;
 
+/**
+ * firebase push 必须的实现类
+ */
 public class FrameFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {

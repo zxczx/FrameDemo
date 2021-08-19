@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import com.android.installreferrer.api.InstallReferrerClient;
 import com.android.installreferrer.api.InstallReferrerStateListener;
 import com.android.installreferrer.api.ReferrerDetails;
+import com.example.framedemo.util.PiracyChecker;
 
 
 /* *

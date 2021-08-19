@@ -9,7 +9,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.TimeZone;
-
+/**
+ * Time工具类
+ */
 public class TimeUtil {
 
     public static long getStartTimeInMillisOfDay() {
@@ -20,16 +22,6 @@ public class TimeUtil {
         return startDate.getTimeInMillis();
     }
 
-    public static String formatTimeByPattern(long time, String pattern) {
-        if (time <= 0)
-            return "";
-        if (TextUtils.isEmpty(pattern))
-            return "";
-        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-        Date dt = new Date(time);
-        String dateTime = sdf.format(dt);
-        return dateTime;
-    }
 
     /**
      * 获取过去几天的时间戳，以天为单位，包括今天。

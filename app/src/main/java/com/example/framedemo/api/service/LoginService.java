@@ -11,12 +11,12 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 
+/**
+ * 登陆相关接口  其他模块可另建Service
+ */
 public interface LoginService {
 
     @POST("/login")
     Single<ApiResponse<User>> login(@Body Map<String, Object> params);
 
-    @POST("/upload")
-    @Multipart
-    Single<String> upload(@Part MultipartBody.Part token, @Part MultipartBody.Part file);
 }

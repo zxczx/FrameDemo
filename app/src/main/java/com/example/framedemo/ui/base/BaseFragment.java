@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-
+/**
+ * BaseFragment，可设置通用方法
+ */
 public abstract class BaseFragment extends Fragment {
 
   @Nullable

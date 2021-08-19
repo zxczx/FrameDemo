@@ -3,6 +3,9 @@ package com.example.framedemo.mvp;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * BasePresenter  处理CompositeDisposable
+ */
 public class BasePresenter<T extends MvpView> implements MvpPresenter<T>{
 
     private T view;

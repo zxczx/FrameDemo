@@ -1,8 +1,5 @@
 package com.example.framedemo.mvp.room;
 
-
-import androidx.room.Room;
-
 import com.example.framedemo.db.user.User;
 import com.example.framedemo.mvp.BasePresenter;
 import com.example.framedemo.repository.RoomRepository;
@@ -11,6 +8,9 @@ import com.example.framedemo.rx.SchedulerHelper;
 
 import java.util.List;
 
+/**
+ * RoomPresenter，访问RoomRepository中方法，以及返回数据给view
+ */
 public class RoomPresenter extends BasePresenter<RoomContract.View> implements RoomContract.Presenter {
 
 

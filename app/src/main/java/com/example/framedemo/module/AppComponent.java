@@ -8,7 +8,9 @@ import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjectionModule;
 
-
+/**
+ * 在FrameApplication初始化所有modules，生成相应的配置文件
+ */
 @Singleton
 @Component(modules = {
         DbModule.class,

@@ -9,7 +9,9 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-
+/**
+ * RepositoryModule，初始化所有的Repository
+ */
 @Module
 public class RepositoryModule {
 

@@ -9,6 +9,9 @@ import com.example.framedemo.mvp.MvpView;
 
 import dagger.android.AndroidInjection;
 
+/**
+ * LceNormalActivity，封装了常见的回调，Activity的dagger注入
+ */
 public class LceNormalActivity extends BaseActivity implements MvpView {
 
 

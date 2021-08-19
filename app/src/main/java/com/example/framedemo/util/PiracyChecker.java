@@ -1,4 +1,4 @@
-package com.example.framedemo.common.google.installreferrertool;
+package com.example.framedemo.util;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -14,8 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * author : She Wenbiao
- * date   : 2020/6/11 11:12 AM
+ *  生成彩蛋签名校验key的工具类
  */
 public class PiracyChecker {
 

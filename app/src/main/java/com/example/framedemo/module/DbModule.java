@@ -13,6 +13,9 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * 数据库的初始化
+ */
 @Module
 public class DbModule {
 

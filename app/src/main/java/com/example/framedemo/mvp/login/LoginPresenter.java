@@ -8,6 +8,9 @@ import com.example.framedemo.rx.SchedulerHelper;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * LoginPresenter，访问LoginRepository中方法，以及返回数据给view
+ */
 public class LoginPresenter extends BasePresenter<LoginContract.View> implements LoginContract.Presenter {
 
 

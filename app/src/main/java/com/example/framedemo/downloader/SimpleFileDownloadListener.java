@@ -5,7 +5,9 @@ import com.liulishuo.filedownloader.FileDownloadListener;
 
 import java.io.File;
 
-
+/**
+ * FileDownloader的监听回调
+ */
 public abstract class SimpleFileDownloadListener extends FileDownloadListener {
 
     protected abstract void updateProgress(int progress);

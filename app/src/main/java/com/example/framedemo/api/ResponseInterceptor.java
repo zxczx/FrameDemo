@@ -7,6 +7,9 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
+/**
+ * 接收拦截器
+ */
 public class ResponseInterceptor implements Interceptor {
 
     @Override

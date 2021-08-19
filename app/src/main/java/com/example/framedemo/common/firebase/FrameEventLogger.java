@@ -6,7 +6,9 @@ import android.os.Bundle;
 import com.example.framedemo.FrameApplication;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
-
+/**
+ * 实现打点的关键类
+ */
 public class FrameEventLogger {
 
     public static void logEvent(String trackerName) {

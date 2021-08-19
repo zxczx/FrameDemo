@@ -7,11 +7,13 @@ import com.example.framedemo.ui.my.adapter.MyAdapter;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * MyModule 初始化My界面相关方法
+ */
 @Module
 public class MyModule {
     @Provides
     public static MyAdapter provideMyAdapter() {
-        Log.i("zxc","-----------MyModule---------");
         return new MyAdapter();
     }
 }

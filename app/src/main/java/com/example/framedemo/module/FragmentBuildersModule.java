@@ -9,7 +9,9 @@ import com.example.framedemo.ui.my.MyFragment;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
-
+/**
+ * 给Fragment 注入Module
+ */
 @Module
 abstract class FragmentBuildersModule {
     @ContributesAndroidInjector(modules = LoginModule.class)

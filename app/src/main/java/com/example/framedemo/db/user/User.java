@@ -7,7 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
+/**
+ * Entity注解包含的属性有：
+ * tableName：设置表名字。默认是类的名字,不区分大小写。
+ * indices：设置索引。
+ * inheritSuperIndices：父类的索引是否会自动被当前类继承。
+ * primaryKeys：设置主键。
+ * foreignKeys：设置外键。
+ */
 @Entity(tableName = "t_user")
 public class User implements Parcelable {
 

@@ -10,6 +10,9 @@ import java.util.List;
 
 import io.reactivex.Single;
 
+/**
+ * Data Access Objects 是Room的主要组件，负责定义访问数据库的方
+ */
 @Dao
 public interface UserDao {
 

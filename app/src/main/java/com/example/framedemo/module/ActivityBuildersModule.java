@@ -6,7 +6,9 @@ import com.example.framedemo.ui.my.roomDemo.RoomDemoActivity;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
-
+/**
+ * 给Activity 注入Module
+ */
 @Module()
 public  abstract class ActivityBuildersModule {
     @ContributesAndroidInjector(modules = RoomModule.class)
