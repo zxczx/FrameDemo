@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.multidex.MultiDexApplication;
 
+import com.EventLoggerCollectUtilsApplication;
 import com.example.framedemo.common.firebase.FrameEventLogger;
 import com.example.framedemo.common.google.billing.BillingClientLifecycle;
 import com.example.framedemo.common.google.installreferrertool.InstallReferrerTool;
@@ -51,6 +52,8 @@ public class FrameApplication extends MultiDexApplication implements HasSupportF
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
         }
+
+        EventLoggerCollectUtilsApplication.getInstance().initialize(this);
 
     }
 

@@ -5,7 +5,7 @@ public class NewVersionInfo {
     private int versionCode;
     private String versionName;
     private String whatsNew;
-    private boolean forceUpgrade;
+    private boolean compulsoryUpgrading;
 
     public int getVersionCode() {
         return versionCode;
@@ -32,10 +32,10 @@ public class NewVersionInfo {
     }
 
     public boolean isForceUpgrade() {
-        return forceUpgrade;
+        return compulsoryUpgrading;
     }
 
     public void setForceUpgrade(boolean forceUpgrade) {
-        this.forceUpgrade = forceUpgrade;
+        this.compulsoryUpgrading = forceUpgrade;
     }
 }

@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.framedemo"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -99,5 +99,7 @@ dependencies {
 
     //mmkv
     implementation 'com.tencent:mmkv-static:1.2.7'
+
+    implementation project(path: ':eventloggercollectutils')
 
 }

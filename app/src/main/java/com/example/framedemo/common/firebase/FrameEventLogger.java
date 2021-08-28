@@ -3,6 +3,7 @@ package com.example.framedemo.common.firebase;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.amessage.eventloggercollectutils.EventLoggerUtils;
 import com.example.framedemo.FrameApplication;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -38,6 +39,9 @@ public class FrameEventLogger {
         try {
             FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.getInstance(context);
             firebaseAnalytics.logEvent(trackerName, bundle);
+
+            EventLoggerUtils.upEventLoggerData(trackerName);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

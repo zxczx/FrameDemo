@@ -40,7 +40,7 @@ public class VersionChecker {
     public static final String INT_APP_VERSION_CODE_IN_STORE = "int_versioncode";
     public static final String STR_APP_VERSION_NAME_IN_STORE = "str_versionname";
     public static final String STR_APP_WHAT_NEW_CONTENT = "str_whatsnew";
-    public static final String STR_APP_FORCE_UPGRADE = "force_upgrade";
+    public static final String STR_APP_COMPULSORY_UPGRADING = "boolean_compulsory_upgrading";
 
     public static final String PREF_KEY_INSTALL_DAY_START_TIME = "pref_key_install_day_start_time";
     public static final String PREF_KEY_INSTALL_TIME = "pref_key_install_time";
@@ -133,7 +133,7 @@ public class VersionChecker {
 
                 newVersionInfo = new NewVersionInfo();
                 try {
-                    boolean forceUpgrade = jsonObject.getBoolean(STR_APP_FORCE_UPGRADE);
+                    boolean forceUpgrade = jsonObject.getBoolean(STR_APP_COMPULSORY_UPGRADING);
                     newVersionInfo.setForceUpgrade(forceUpgrade);
                 } catch (Exception ex) {
                 }
