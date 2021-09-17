@@ -1,4 +1,4 @@
-package com.amessage.eventloggercollectutils;
+package com.eventloggercollectutils;
 
 import io.reactivex.SingleTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;

@@ -1,4 +1,4 @@
-package com.amessage.eventloggercollectutils;
+package com.eventloggercollectutils;
 
 import org.junit.Test;
 

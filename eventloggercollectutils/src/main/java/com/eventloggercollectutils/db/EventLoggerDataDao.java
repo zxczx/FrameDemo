@@ -1,6 +1,4 @@
-package com.amessage.eventloggercollectutils.db;
-
-import android.database.Cursor;
+package com.eventloggercollectutils.db;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -12,7 +10,6 @@ import androidx.room.Update;
 import java.util.List;
 
 import io.reactivex.Single;
-import io.reactivex.SingleSource;
 
 @Dao
 public interface EventLoggerDataDao {

@@ -47,8 +47,9 @@ public class VersionChecker {
 
     public static final int UNINIT_VERSION_CODE = -1;
 
+    //todo
     public static void updateVersionChecker(Context ctx) {
-        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl().loadConfig();
+        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl();
 
         // this package version code
         int versionCode = getVersionCode(ctx);
@@ -105,12 +106,12 @@ public class VersionChecker {
     }
 
     public static int getFirstInstallVersion(Context ctx) {
-        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl().loadConfig();
+        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl();
         return sp.getInt(PREF_KEY_FIRST_INSTALL_VERSION_CODE, UNINIT_VERSION_CODE);
     }
 
     public static int getPrevInstallVersion(Context ctx) {
-        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl().loadConfig();
+        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl();
         return sp.getInt(PREF_KEY_PREV_VERSION_CODE, UNINIT_VERSION_CODE);
     }
 
@@ -151,7 +152,7 @@ public class VersionChecker {
 
     public static boolean hasNewVersionInStore(Context context) {
         boolean hasNewVersion = false;
-        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl().loadConfig();
+        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl();
 
         try {
             NewVersionInfo newVersionInfo = getNewVersionInStore();
@@ -182,7 +183,7 @@ public class VersionChecker {
     public static void showUpdatedVersionDialog(final Activity activity) {
 
         NewVersionInfo newVersionInfo = getNewVersionInStore();
-        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl().loadConfig();
+        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl();
         if (sp.getBoolean(Config.IS_SHOW_UPDATE_VERSION_DIALOG, true)) {
             if (newVersionInfo != null) {
                 View view = LayoutInflater.from(activity).inflate(R.layout.update_new_version_dialog, null);
@@ -246,7 +247,7 @@ public class VersionChecker {
     }
 
     public static long getFirstInstallDayTime() {
-        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl().loadConfig();
+        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl();
         long startTime = sp.getLong(PREF_KEY_INSTALL_DAY_START_TIME, Config.INVALID);
         if (startTime == Config.INVALID) {
             startTime = TimeUtil.getStartTimeInMillisOfDay();
@@ -256,7 +257,7 @@ public class VersionChecker {
     }
 
     public static long getFirstInstallTime() {
-        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl().loadConfig();
+        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl();
         long currentTime = sp.getLong(PREF_KEY_INSTALL_TIME, Config.INVALID);
         if (currentTime == Config.INVALID) {
             currentTime = System.currentTimeMillis();
@@ -267,7 +268,7 @@ public class VersionChecker {
 
 
     public static boolean isFirstInstall(Context context) {
-        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl().loadConfig();
+        FrameMMkvImpl sp = FrameMMkvImpl.getFrameMMkvImpl();
         return sp.getBoolean(PREF_KEY_BOOLEAN_FIRST_INSTALL, true);
     }
 }

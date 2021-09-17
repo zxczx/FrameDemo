@@ -3,7 +3,7 @@ package com.example.framedemo.common.firebase;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.amessage.eventloggercollectutils.EventLoggerUtils;
+import com.eventloggercollectutils.EventLoggerUtils;
 import com.example.framedemo.FrameApplication;
 import com.google.firebase.analytics.FirebaseAnalytics;
 

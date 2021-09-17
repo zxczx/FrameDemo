@@ -1,21 +1,16 @@
 package com;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Build;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
-import com.amessage.eventloggercollectutils.BuildConfig;
-import com.amessage.eventloggercollectutils.R;
-import com.amessage.eventloggercollectutils.db.EventLoggerData;
-import com.amessage.eventloggercollectutils.db.EventLoggerDatabase;
+import com.eventloggercollectutils.EventLoggerCollectInitSuccess;
+import com.eventloggercollectutils.db.EventLoggerData;
+import com.eventloggercollectutils.db.EventLoggerDatabase;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.UUID;
 
 import jxl.Sheet;
 import jxl.Workbook;
@@ -26,33 +21,42 @@ import jxl.read.biff.BiffException;
  * 首次进入EventLoggerCollectActivity 记录打点开始
  * 使用直接调用EventLoggerUtils.upEventLoggerData
  */
-public class EventLoggerCollectUtilsApplication {
+public class EventLoggerCollectApplication {
 
     private static Context mContext;
 
-    private static volatile EventLoggerCollectUtilsApplication instance = null;
+    private static volatile EventLoggerCollectApplication instance = null;
 
     public static boolean isOpen = false;
 
+    private EventLoggerCollectInitSuccess mEventLoggerCollectInitSuccess;
 
-    public static EventLoggerCollectUtilsApplication getInstance() {
+
+    public static EventLoggerCollectApplication getInstance() {
         if (instance == null) {
-            synchronized (EventLoggerCollectUtilsApplication.class) {
+            synchronized (EventLoggerCollectApplication.class) {
                 if (instance == null) {
-                    instance = new EventLoggerCollectUtilsApplication();
+                    instance = new EventLoggerCollectApplication();
                 }
             }
         }
-
         return instance;
     }
 
-    public void initialize(@NonNull Context context) {
+    public void initialize(@NonNull Context context, EventLoggerCollectInitSuccess eventLoggerCollectInitSuccess) {
         mContext = context;
+        mEventLoggerCollectInitSuccess = eventLoggerCollectInitSuccess;
         new Thread(new Runnable() {
             @Override
             public void run() {
-                initDataFromSheet();
+                EventLoggerDatabase.getInstance(mContext).getEventLoggerDataDao().getAllEventLoggerData().subscribe(
+                        eventLoggerData -> {
+                            if (eventLoggerData != null && eventLoggerData.size() > 0) {
+                                mEventLoggerCollectInitSuccess.initFinishCallBack();
+                            } else {
+                                initDataFromSheet();
+                            }
+                        });
             }
         }).start();
 
@@ -62,10 +66,12 @@ public class EventLoggerCollectUtilsApplication {
         return mContext;
     }
 
+    @SuppressLint("CheckResult")
     public void initDataFromSheet() {
-        AssetManager assetManager = mContext.getAssets();
-        try {
 
+
+        try {
+            AssetManager assetManager = mContext.getAssets();
             Workbook book = Workbook.getWorkbook(assetManager.open("eventlogger.xls"));
             Sheet sheet = book.getSheet(0);
             for (int i = 0; i < sheet.getRows(); i++) {
@@ -77,6 +83,7 @@ public class EventLoggerCollectUtilsApplication {
             }
 
             book.close();
+            mEventLoggerCollectInitSuccess.initFinishCallBack();
         } catch (IOException | BiffException e) {
             e.printStackTrace();
         }

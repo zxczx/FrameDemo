@@ -1,20 +1,22 @@
 package com.example.framedemo.ui.my.about;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
-import android.widget.TextView;
 
+import com.EventLoggerCollectApplication;
+import com.eventloggercollectutils.EventLoggerCollectActivity;
+import com.eventloggercollectutils.EventLoggerCollectInitSuccess;
 import com.example.framedemo.BuildConfig;
 import com.example.framedemo.R;
+import com.example.framedemo.common.firebase.FrameEventLogger;
 import com.example.framedemo.databinding.ActivityAboutBinding;
-import com.example.framedemo.databinding.ActivityMainBinding;
 import com.example.framedemo.ui.base.BaseActivity;
-import com.example.framedemo.ui.main.MainActivity;
+import com.example.framedemo.util.ClickUtils;
+import com.example.framedemo.util.EventLoggerOpenOnClickUtil;
 import com.example.framedemo.util.PromotionManager;
 import com.example.framedemo.util.UserPrivacyUtils;
 
@@ -42,6 +44,8 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener{
         mActivityAboutBinding.toolbar.back.setOnClickListener(this::onClick);
         setUserPrivacy();
         setVersion();
+        FrameEventLogger.logEvent("sendpicture_im_click");
+        showEventLoggerCollect();
     }
 
     private void setVersion() {
@@ -53,7 +57,24 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener{
         mActivityAboutBinding.tvPrivacy.setText(UserPrivacyUtils.setUserPrivacy(this));
         mActivityAboutBinding.tvPrivacy.setMovementMethod(LinkMovementMethod.getInstance());
     }
+    private void showEventLoggerCollect() {
+        mActivityAboutBinding.tvAppName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (EventLoggerOpenOnClickUtil.isOpen()){
 
+                    EventLoggerCollectApplication.getInstance().initialize(getApplicationContext(), new EventLoggerCollectInitSuccess() {
+                        @Override
+                        public void initFinishCallBack() {
+                            EventLoggerCollectActivity.start(AboutActivity.this);
+                        }
+                    });
+
+                }
+            }
+        });
+
+    }
 
     @Override
     public void onClick(View v) {

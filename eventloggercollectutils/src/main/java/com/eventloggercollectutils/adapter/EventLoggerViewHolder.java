@@ -1,4 +1,4 @@
-package com.amessage.eventloggercollectutils.adapter;
+package com.eventloggercollectutils.adapter;
 
 
 import android.view.LayoutInflater;
@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.amessage.eventloggercollectutils.db.EventLoggerData;
-import com.amessage.eventloggercollectutils.R;
-import com.amessage.eventloggercollectutils.databinding.ItemEventLoggerBinding;
+import com.eventloggercollectutils.db.EventLoggerData;
+import com.eventloggercollectutils.R;
+import com.eventloggercollectutils.databinding.ItemEventLoggerBinding;
 
 
 public class EventLoggerViewHolder extends RecyclerView.ViewHolder {

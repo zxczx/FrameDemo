@@ -1,4 +1,4 @@
-package com.amessage.eventloggercollectutils;
+package com.eventloggercollectutils;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -11,18 +11,17 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.EventLoggerCollectUtilsApplication;
-import com.amessage.eventloggercollectutils.adapter.EventLoggerAdapter;
-import com.amessage.eventloggercollectutils.databinding.ActivityEventLoggerCollectBinding;
-import com.amessage.eventloggercollectutils.db.EventLoggerData;
-import com.amessage.eventloggercollectutils.db.EventLoggerDatabase;
+import com.EventLoggerCollectApplication;
+import com.eventloggercollectutils.adapter.EventLoggerAdapter;
+import com.eventloggercollectutils.databinding.ActivityEventLoggerCollectBinding;
+import com.eventloggercollectutils.db.EventLoggerData;
+import com.eventloggercollectutils.db.EventLoggerDatabase;
 import com.google.gson.Gson;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -47,7 +46,7 @@ public class EventLoggerCollectActivity extends AppCompatActivity implements Vie
         super.onCreate(savedInstanceState);
         mActivityEventLoggerCollectBinding = ActivityEventLoggerCollectBinding.inflate(getLayoutInflater());
         setContentView(mActivityEventLoggerCollectBinding.getRoot());
-        EventLoggerCollectUtilsApplication.isOpen = true;
+        EventLoggerCollectApplication.isOpen = true;
         initToolBar();
         iniData();
         initView();

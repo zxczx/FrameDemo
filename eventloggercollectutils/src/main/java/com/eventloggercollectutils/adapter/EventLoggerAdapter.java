@@ -1,4 +1,4 @@
-package com.amessage.eventloggercollectutils.adapter;
+package com.eventloggercollectutils.adapter;
 
 
 import android.view.ViewGroup;
@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.amessage.eventloggercollectutils.db.EventLoggerData;
+import com.eventloggercollectutils.db.EventLoggerData;
 import java.util.ArrayList;
 import java.util.List;
 

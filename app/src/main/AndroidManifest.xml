@@ -42,6 +42,7 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service> <!-- [END firebase_iid_service] -->
+        <!-- todo-->
     </application>
 
 </manifest>

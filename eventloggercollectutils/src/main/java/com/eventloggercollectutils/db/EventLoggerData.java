@@ -1,4 +1,4 @@
-package com.amessage.eventloggercollectutils.db;
+package com.eventloggercollectutils.db;
 
 import android.os.Parcel;
 import android.os.Parcelable;

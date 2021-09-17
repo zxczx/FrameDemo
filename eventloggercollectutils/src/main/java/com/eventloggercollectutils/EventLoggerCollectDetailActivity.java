@@ -1,4 +1,4 @@
-package com.amessage.eventloggercollectutils;
+package com.eventloggercollectutils;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,18 +9,22 @@ import android.os.Bundle;
 import android.view.View;
 
 
-import com.amessage.eventloggercollectutils.adapter.EventLoggerAdapter;
-import com.amessage.eventloggercollectutils.databinding.ActivityEventLoggerCollectDetailBinding;
-import com.amessage.eventloggercollectutils.db.EventLoggerData;
-import com.amessage.eventloggercollectutils.db.EventLoggerDatabase;
+import com.eventloggercollectutils.adapter.EventLoggerAdapter;
+import com.eventloggercollectutils.databinding.ActivityEventLoggerCollectDetailBinding;
+import com.eventloggercollectutils.db.EventLoggerData;
+import com.eventloggercollectutils.db.EventLoggerDatabase;
 
 import java.util.List;
+
+import io.reactivex.disposables.CompositeDisposable;
 
 
 public class EventLoggerCollectDetailActivity extends AppCompatActivity {
 
     private ActivityEventLoggerCollectDetailBinding mActivityEventLoggerCollectDetailBinding;
     private int mFlag;
+    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
+
     private List<EventLoggerData> mEventLoggerData;
 
 
@@ -38,7 +42,29 @@ public class EventLoggerCollectDetailActivity extends AppCompatActivity {
         setContentView(mActivityEventLoggerCollectDetailBinding.getRoot());
         mFlag = getIntent().getIntExtra("flag", 0);
         initToolBar();
-        initView();
+        initData();
+    }
+
+    private void initData() {
+        if (mFlag == 0) {
+            mActivityEventLoggerCollectDetailBinding.necessaryAnalytics.setText("所有点:");
+            compositeDisposable.add(EventLoggerDatabase.getInstance(this).getEventLoggerDataDao().getAllEventLoggerData()
+                    .compose(SchedulerHelper.ioMain()).subscribe(
+                            eventLoggerData -> {
+                                mEventLoggerData = eventLoggerData;
+                                initView();
+                            }
+                    ));
+        } else if (mFlag == 1) {
+            mActivityEventLoggerCollectDetailBinding.necessaryAnalytics.setText("已测点:");
+            compositeDisposable.add(EventLoggerDatabase.getInstance(this).getEventLoggerDataDao().getAlreadyEventLoggerData()
+                    .compose(SchedulerHelper.ioMain()).subscribe(
+                            eventLoggerData -> {
+                                mEventLoggerData = eventLoggerData;
+                                initView();
+                            }
+                    ));
+        }
 
     }
 
@@ -47,13 +73,6 @@ public class EventLoggerCollectDetailActivity extends AppCompatActivity {
         mActivityEventLoggerCollectDetailBinding.rv.setLayoutManager(new LinearLayoutManager(this));
         mActivityEventLoggerCollectDetailBinding.rv.setAdapter(adapter);
         adapter.addSingleModels(mEventLoggerData);
-        if (mFlag == 0) {
-            mActivityEventLoggerCollectDetailBinding.necessaryAnalytics.setText("所有点:");
-//            mEventLoggerData =  EventLoggerDatabase.getInstance(this).getEventLoggerDataDao().getAllEventLoggerData();
-        } else if (mFlag == 1) {
-            mActivityEventLoggerCollectDetailBinding.necessaryAnalytics.setText("已测点:");
-//            mEventLoggerData =  EventLoggerDatabase.getInstance(this).getEventLoggerDataDao().getAlreadyEventLoggerData();
-        }
         mActivityEventLoggerCollectDetailBinding.necessaryAnalyticsTv.setText(String.valueOf(mEventLoggerData.size()));
     }
 
@@ -70,6 +89,5 @@ public class EventLoggerCollectDetailActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }
