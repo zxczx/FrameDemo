@@ -4,6 +4,10 @@
 
     <application>
         <activity
+            android:name=".EventLoggerOrderDateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"  />
+        <activity
             android:name=".EventLoggerCollectActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

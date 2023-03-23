@@ -61,7 +61,9 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener{
         mActivityAboutBinding.tvAppName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (EventLoggerOpenOnClickUtil.isOpen()){
+
+
+//                if (EventLoggerOpenOnClickUtil.isOpen()){
 
                     EventLoggerCollectApplication.getInstance().initialize(getApplicationContext(), new EventLoggerCollectInitSuccess() {
                         @Override
@@ -71,7 +73,7 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener{
                     });
 
                 }
-            }
+//            }
         });
 
     }

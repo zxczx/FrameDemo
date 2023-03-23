@@ -3,12 +3,14 @@ package com;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import com.eventloggercollectutils.EventLoggerCollectInitSuccess;
 import com.eventloggercollectutils.db.EventLoggerData;
 import com.eventloggercollectutils.db.EventLoggerDatabase;
+import com.eventloggercollectutils.db.OrderDate;
 
 import java.io.IOException;
 
@@ -81,10 +83,20 @@ public class EventLoggerCollectApplication {
                 eventLoggerData.setIsImportance("1".equals(sheet.getCell(4, i).getContents()) ? 1 : 0);
                 EventLoggerDatabase.getInstance(mContext).getEventLoggerDataDao().insert(eventLoggerData);
             }
-
             book.close();
+            Workbook workbook = Workbook.getWorkbook(assetManager.open("a.xls"));
+            Sheet bookSheet = workbook.getSheet(0);
+            for (int i = 0; i < bookSheet.getRows(); i++) {
+                OrderDate orderDate = new OrderDate();
+                orderDate.setNum(bookSheet.getCell(0, i).getContents());
+                orderDate.setKey(bookSheet.getCell(1, i).getContents());
+                orderDate.setType(bookSheet.getCell(2, i).getContents());
+                EventLoggerDatabase.getInstance(mContext).getOrderDateDao().insert(orderDate);
+            }
+
+            workbook.close();
             mEventLoggerCollectInitSuccess.initFinishCallBack();
-        } catch (IOException | BiffException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

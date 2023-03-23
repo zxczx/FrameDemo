@@ -60,6 +60,7 @@ public class EventLoggerCollectActivity extends AppCompatActivity implements Vie
 
         mActivityEventLoggerCollectBinding.allAnalytics.setOnClickListener(this::onClick);
         mActivityEventLoggerCollectBinding.alreadyAnalytics.setOnClickListener(this::onClick);
+        mActivityEventLoggerCollectBinding.specialAnalytics.setOnClickListener(this::onClick);
         mActivityEventLoggerCollectBinding.copy.setOnClickListener(this::onClick);
         mActivityEventLoggerCollectBinding.allAnalyticsTv.setText(String.valueOf(mAllData.size()));
         mActivityEventLoggerCollectBinding.alreadyNecessaryAnalyticsTv.setText(String.valueOf(mCheckNecessaryData.size()));
@@ -67,9 +68,9 @@ public class EventLoggerCollectActivity extends AppCompatActivity implements Vie
         mActivityEventLoggerCollectBinding.alreadyAnalyticsTv.setText(String.valueOf(mCheckData.size()));
         mAdapter.addSingleModels(mNecessaryData);
 
-        DecimalFormat df = new DecimalFormat("0.00");
-        String a = df.format(((float) mCheckData.size() * 100) / mAllData.size());
-        mActivityEventLoggerCollectBinding.fractionAnalyticsTv.setText(a + "%");
+//        DecimalFormat df = new DecimalFormat("0.00");
+//        String a = df.format(((float) mCheckData.size() * 100) / mAllData.size());
+//        mActivityEventLoggerCollectBinding.fractionAnalyticsTv.setText(a + "%");
     }
 
     private void initToolBar() {
@@ -129,12 +130,14 @@ public class EventLoggerCollectActivity extends AppCompatActivity implements Vie
             compositeDisposable.add(EventLoggerDatabase.getInstance(this).getEventLoggerDataDao()
                     .getNecessaryEventLoggerData().compose(SchedulerHelper.ioMain()).subscribe(eventLoggerData -> {
 
-                        if (eventLoggerData!=null&&eventLoggerData.size()>0){
+                        if (eventLoggerData != null && eventLoggerData.size() > 0) {
                             String str = new Gson().toJson(eventLoggerData);
-                            copyContentToClipboard(str,EventLoggerCollectActivity.this);
+                            copyContentToClipboard(str, EventLoggerCollectActivity.this);
                         }
 
                     }));
+        } else if (id == R.id.special_analytics) {
+            EventLoggerOrderDateActivity.start(this);
         }
     }
 
@@ -151,6 +154,6 @@ public class EventLoggerCollectActivity extends AppCompatActivity implements Vie
         ClipData mClipData = ClipData.newPlainText("Label", content);
         // 将ClipData内容放到系统剪贴板里。
         cm.setPrimaryClip(mClipData);
-        Toast.makeText(this,"重要点信息已复制",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "重要点信息已复制", Toast.LENGTH_SHORT).show();
     }
 }

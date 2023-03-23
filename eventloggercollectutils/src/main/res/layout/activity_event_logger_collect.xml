@@ -40,14 +40,14 @@
             android:textColor="@android:color/black" />
 
         <TextView
-            android:id="@+id/fraction_analytics"
+            android:id="@+id/special_analytics"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_marginLeft="16dp"
             android:layout_weight="1"
             android:background="@drawable/shape_event_log_bg"
             android:gravity="center"
-            android:text="覆盖率"
+            android:text="特殊点"
             android:textColor="@android:color/black" />
 
     </LinearLayout>
@@ -82,14 +82,12 @@
             android:textColor="@android:color/black" />
 
         <TextView
-            android:id="@+id/fraction_analytics_tv"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_marginLeft="16dp"
             android:layout_weight="1"
             android:background="@drawable/shape_event_log_bg"
             android:gravity="center"
-            android:text="20%"
             android:textColor="@android:color/black" />
 
     </LinearLayout>

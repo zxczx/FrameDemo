@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.framedemo.R;
+import com.example.framedemo.common.firebase.FrameEventLogger;
 import com.example.framedemo.databinding.FragmentMyBinding;
 import com.example.framedemo.mvp.room.RoomContract;
 import com.example.framedemo.ui.base.LceNormalFragment;
@@ -95,18 +96,23 @@ public class MyFragment extends LceNormalFragment implements View.OnClickListene
     public void onItemClick(int ids, View view) {
         switch (ids) {
             case R.string.my_room:
+                FrameEventLogger.logEvent("click_a");
                 RoomDemoActivity.start(getActivity());
                 break;
             case R.string.my_rxjava:
                 RxJavaDemoActivity.start(getActivity());
+                FrameEventLogger.logEvent("click_b");
                 break;
             case R.string.my_check_version:
+                FrameEventLogger.logEvent("click_c");
                 checkVersion();
                 break;
             case R.string.my_about:
+                FrameEventLogger.logEvent("click_d");
                 AboutActivity.start(getActivity());
                 break;
             case R.string.my_eggshell:
+                FrameEventLogger.logEvent("click_e");
                 Toast.makeText(getContext(), "长按头像试试", Toast.LENGTH_LONG).show();
                 break;
 

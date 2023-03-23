@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = { EventLoggerData.class }, version = 1,exportSchema = false)
+@Database(entities = { EventLoggerData.class ,OrderDate.class}, version = 2,exportSchema = false)
 public abstract class EventLoggerDatabase extends RoomDatabase {
     private static final String DB_NAME = "EventLoggerDatabase.db";
     private static volatile EventLoggerDatabase instance;
@@ -26,4 +26,5 @@ public abstract class EventLoggerDatabase extends RoomDatabase {
     }
 
     public abstract EventLoggerDataDao getEventLoggerDataDao();
+    public abstract OrderDateDao getOrderDateDao();
 }
